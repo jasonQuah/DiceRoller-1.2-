@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
 
         val sumButton: Button = findViewById(R.id.add_button)
         sumButton.setOnClickListener { addButton() }
+
+        val totalButton: Button = findViewById(R.id.sum_button)
+        totalButton.setOnClickListener{ addTotalButton()}
     }
 
     private fun rollDice() {
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         val resultText2: TextView = findViewById(R.id.result2_text)
         val resultText3: TextView = findViewById(R.id.result3_text)
 
-        if (resultText.text == "DiceRoller"){
+        if (resultText.text == "DiceRoller") {
             resultText.text = "1"
             resultText2.text = "1"
             resultText3.text = "1"
@@ -79,10 +82,19 @@ class MainActivity : AppCompatActivity() {
                 resultText3.text = number3.toString()
             }
         }
-
-        /*val totalText: TextView = findViewById(R.id.total_text)
-        val num1 = Integer.parseInt(resultText.text.toString())
-        val num = num1 + Integer.parseInt(resultText2.text.toString()) + Integer.parseInt(resultText3.text.toString())
-        totalText.text = num.toString()*/
     }
+
+        private fun addTotalButton(){
+            val resultText: TextView = findViewById(R.id.result_text)
+            val resultText2: TextView = findViewById(R.id.result2_text)
+            val resultText3: TextView = findViewById(R.id.result3_text)
+            val totalText: TextView = findViewById(R.id.sum_text)
+
+            val num1 = Integer.parseInt(resultText.text.toString())
+            val num = num1 + Integer.parseInt(resultText2.text.toString()) + Integer.parseInt(resultText3.text.toString())
+            totalText.text = num.toString()
+        }
+
+
+
 }
